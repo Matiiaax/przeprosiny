@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <title>Oficjalna Strona Przeprosin 💖</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Comic Sans MS', 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      width: 90%;
+      max-width: 420px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+      animation: fadeIn 1s ease;
+    }
+
+    h1 {
+      color: #ff4d6d;
+    }
+
+    p {
+      font-size: 18px;
+      margin: 20px 0;
+    }
+
+    button {
+      margin: 10px;
+      padding: 12px 20px;
+      font-size: 16px;
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+      background: #ff4d6d;
+      color: white;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    .secondary {
+      background: #adb5bd;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .float {
+      position: absolute;
+      bottom: -20px;
+      font-size: 20px;
+      animation: floatUp 6s linear infinite;
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    @keyframes floatUp {
+      from { transform: translateY(0); opacity: 1; }
+      to { transform: translateY(-100vh); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="card" id="app"></div>
+
+<script>
+  const app = document.getElementById("app");
+
+  // ❤️ + 🌼 w tle
+  function floatThings() {
+    const el = document.createElement("div");
+    el.className = "float";
+    el.innerText = Math.random() < 0.5 ? "❤️" : "🌼";
+    el.style.left = Math.random() * 100 + "vw";
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), 6000);
+  }
+  setInterval(floatThings, 600);
+
+  function screen1() {
+    app.innerHTML = `
+      <h1>Hej Ty 💖</h1>
+      <p>
+        Oficjalna Strona Przeprosin informuje,<br>
+        że twój chłopak bardzo żałuje<br>
+        i chce ci to spokojnie wyjaśnić.
+      </p>
+      <button onclick="screen2()">Słucham dalej 🙄</button>
+      <button class="secondary" onclick="screen2()">No mów szybko 😒</button>
+    `;
+  }
+
+  function screen2() {
+    app.innerHTML = `
+      <h1>Krótka ankieta 📝</h1>
+      <p>
+        Czy wiesz, że jesteś najlepszą dziewczyną na świecie
+        i moją ukochaną Stokrotką?
+      </p>
+      <button onclick="screen3()">Tak (wiem)</button>
+      <button onclick="screen3()">Tak, ale mów dalej</button>
+    `;
+  }
+
+  function screen3() {
+    app.innerHTML = `
+      <h1>Wyznanie</h1>
+      <p>
+        Wybacz mi kochanie<br>
+        Nie chciałem zabrzmieć niemiło.<br>
+        Głupio mi, że tak to odebrałaś.
+      </p>
+      <p>
+        Przepraszam Cię bardzo<br>
+        i chcę, żebyś wiedziała jedno:
+        <br><br>
+        <strong>Kocham Cię bardzo</strong> ❤️<br><br>
+        I chce widzieć twój cudowny uśmiech bo<br>
+        nie ma piękniejszej rzeczy<br>
+         na tym świecie niż twój cudowny<br>
+        rozwiewający wszystkie problemy uśmiech ❤️
+      </p>
+      <button onclick="screen4()">No tak tak...</button>
+      <button onclick="screen4()">Kontynuuj</button>
+    `;
+  }
+
+  function screen4() {
+    app.innerHTML = `
+      <h1>Ostatnie pytanie 💕</h1>
+      <p>
+        Czy wybaczysz mi kochanie moje brzydkie zachowanie<br>
+        i pójdziemy na coś dobrego?<br><br>
+        Obiecuję: różowy Tigerek<br>
+        ,orzeszki bekonowe z dworca<br>
+        i na przykład jeszcze jakaś dobra Pizza np. Pizza Hut 😘
+      </p>
+      <button onclick="final()">Tak</button>
+      <button onclick="final()">No dobra...</button>
+    `;
+  }
+
+  function final() {
+    app.innerHTML = `
+      <h1>🎉 Sukces 🎉</h1>
+      <p>
+        Oficjalnie mi wybaczyłaś 💖<br><br>
+        Dziękuję Ci za cierpliwość.<br>
+        Bardzo mi zależy.<br>
+        Będę już grzeczny 😇
+      </p>
+      <button style="font-size:18px;" onclick="alert('❤️ Kocham Cię bardzo ❤️')">
+        Wybaczyłaś mi i nie będziesz już zła ❤️
+      </button>
+    `;
+  }
+
+  screen1();
+</script>
+
+</body>
+</html>
